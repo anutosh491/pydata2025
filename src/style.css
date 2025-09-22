@@ -11,7 +11,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --r-background-color: #F4F5F5;
+  --r-background-color: #F3F6F7;
   --r-main-font: 'Fira Sans', Helvetica, sans-serif;
   --r-main-font-size: 42px;
   --r-main-color: #0C0C0C;
@@ -20,14 +20,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading-font: 'Merriweather Sans', Helvetica, sans-serif;
   --r-heading-color: #171b2c;
   --r-heading-background-color: #171b2c;
-  --r-heading-line-height: 1.2;
+  --r-heading-line-height: 1.5;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: uppercase;
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 800;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 1.3em;
-  --r-heading2-size: 1.6em;
+  --r-heading1-size: 2.5em;
+  --r-heading2-size: 2em;
   --r-heading3-size: 1.3em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
@@ -40,7 +40,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-overlay-element-fg-color: 240, 240, 240;
   --r-accent-color: #F7F186;
   --r-bullet-color: #FCA311;
-;
 }
 
 .reveal-viewport {
@@ -77,15 +76,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   height: 100%;
 }
 
-.reveal .slides > .section-with-footer {
-  content: "";
-  position: absolute;
-  background: url('src/images/logo_scientific_computing_transparent.svg') no-repeat left bottom;
-  background-size: 10%;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 /*********************************************
  * HEADERS
  *********************************************/
@@ -107,9 +97,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal h1 {
   font-size: var(--r-heading1-size);
-  background:#faee84b0;
+  background: color-mix(in hsl, var(--r-accent-color) 50%, transparent);
   color: black;
-  border-radius: 5px;
+  border-radius: 0.5em;
   padding: 0.5em;
   text-transform: uppercase;
   margin-top: 2em;
@@ -380,6 +370,15 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: var(--r-link-color);
 }
 
+.reveal .slide-number {
+    background: none;
+    color: var(--r-main-color);
+}
+
+.reveal .controls-arrow {
+    color: var(--r-link-color);
+}
+
 /*********************************************
  * PROGRESS BAR
  *********************************************/
@@ -397,25 +396,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   }
 }
 
-.gif-demo {
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.25);
-}
-
-.topic-title {
-    background: #dee3eaee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin-top: 2em;
-    min-height: 2em;
-    padding: 0.5em;
-}
-
-.topic-title h2 {
-    color: black;
-}
+/*********************************************
+ * COLUMNS
+ *********************************************/
 
 div .two-column {
     display: flex;
@@ -446,68 +429,15 @@ div .column img:not(.image-transparent){
     font-size: 1.1em;
 }
 
-.profile-image {
-    width: 60%;
-    max-width: 55%;
-    border-radius: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 1, 0.5);
-    filter: grayscale(60%);
-}
-
 .jlite-iframe {
     height: 85%;
 }
 
+/*********************************************
+ * FIRST (MAIN) SLIDE
+ *********************************************/
+
 .title-logo {
-    position: absolute;
-    bottom: 0;
-    left: 760px; /*1920px / 2 - 400px/2*/
-    width: 400px;
-}
-
-.end-logo {
-  width: 50%;
-  padding-top: 2em;
-}
-
-div .demo-gif {
-    height: 75%;
-    align-items: center;
-    justify-content: center;
-}
-
-div .demo-gif img {
-    height: 85%;
-    margin-bottom: 0;
-}
-
-.repo-link {
-    font-size: 0.8em;
-}
-
-.jupyter-robot-logo,
-.jupyter-ecosystem-logo {
-    position: absolute;
-    bottom: 0;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.jupyter-ecosystem-logo {
-    height: 35%;
-    left: 23%;
-}
-
-.jupyter-robot-logo {
-    bottom: 33%;
-    height: 25%;
-    left: 75%;
-}
-
-.reveal .slide-number {
-    background: none;
-    color: var(--r-main-color);
-}
-
-.reveal .controls-arrow {
-    color: var(--r-link-color);
+  width: 25em;
+  padding: 2em;
 }
