@@ -1,0 +1,513 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
+  color: #fff;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: #F4F5F5;
+  --r-main-font: 'Fira Sans', Helvetica, sans-serif;
+  --r-main-font-size: 42px;
+  --r-main-color: #0C0C0C;
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: 'Merriweather Sans', Helvetica, sans-serif;
+  --r-heading-color: #171b2c;
+  --r-heading-background-color: #171b2c;
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: uppercase;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 800;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 1.3em;
+  --r-heading2-size: 1.6em;
+  --r-heading3-size: 1.3em;
+  --r-heading4-size: 1em;
+  --r-code-font: monospace;
+  --r-link-color: #C43B0A;
+  --r-link-color-dark: #226CE0;
+  --r-link-color-hover: rgb(73.95, 138.55, 226.1);
+  --r-selection-background-color: #f1d371;
+  --r-selection-color: #0f172a;
+  --r-overlay-element-bg-color: 0, 0, 0;
+  --r-overlay-element-fg-color: 240, 240, 240;
+  --r-accent-color: #F7F186;
+  --r-bullet-color: #FCA311;
+;
+}
+
+.reveal-viewport {
+  background: var(--r-background-color);;
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+.reveal .slides section {
+  height: 100%;
+}
+
+.reveal .slides > .section-with-footer {
+  content: "";
+  position: absolute;
+  background: url('src/images/logo_scientific_computing_transparent.svg') no-repeat left bottom;
+  background-size: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+  background:#faee84b0;
+  color: black;
+  border-radius: 5px;
+  padding: 0.5em;
+  text-transform: uppercase;
+  margin-top: 2em;
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.3;
+}
+
+.subheading {
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 var(--r-block-margin);
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+  font-size: 0.7em;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul li::marker,
+.reveal ul ul li::marker,
+.reveal ul ul ul li::marker {
+  color: var(--r-bullet-color);
+}
+
+.reveal ul li {
+  margin-bottom: 0.5em;
+}
+
+.reveal ul ul li {
+  margin-bottom: 0;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+
+.gif-demo {
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.topic-title {
+    background: #dee3eaee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 2em;
+    min-height: 2em;
+    padding: 0.5em;
+}
+
+.topic-title h2 {
+    color: black;
+}
+
+div .two-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 80%;
+    max-height: 85%;
+}
+div .column,
+div .column-top-align {
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div .column {
+    justify-content: center;
+}
+
+div .column img:not(.image-transparent){
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    max-height: 80%;
+}
+
+.column ul {
+    font-size: 1.1em;
+}
+
+.profile-image {
+    width: 60%;
+    max-width: 55%;
+    border-radius: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 1, 0.5);
+    filter: grayscale(60%);
+}
+
+.jlite-iframe {
+    height: 85%;
+}
+
+.title-logo {
+    position: absolute;
+    bottom: 0;
+    left: 760px; /*1920px / 2 - 400px/2*/
+    width: 400px;
+}
+
+.end-logo {
+  width: 50%;
+  padding-top: 2em;
+}
+
+div .demo-gif {
+    height: 75%;
+    align-items: center;
+    justify-content: center;
+}
+
+div .demo-gif img {
+    height: 85%;
+    margin-bottom: 0;
+}
+
+.repo-link {
+    font-size: 0.8em;
+}
+
+.jupyter-robot-logo,
+.jupyter-ecosystem-logo {
+    position: absolute;
+    bottom: 0;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.jupyter-ecosystem-logo {
+    height: 35%;
+    left: 23%;
+}
+
+.jupyter-robot-logo {
+    bottom: 33%;
+    height: 25%;
+    left: 75%;
+}
+
+.reveal .slide-number {
+    background: none;
+    color: var(--r-main-color);
+}
+
+.reveal .controls-arrow {
+    color: var(--r-link-color);
+}
