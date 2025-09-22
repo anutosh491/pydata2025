@@ -3,7 +3,7 @@ import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   root: '.',
-  base: '/slides/',
+  base: 'https://isabelparedes.github.io/pydata2025/',
   server: {
     open: true,
   },
