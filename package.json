@@ -1,0 +1,33 @@
+{
+  "name": "reveal-ts",
+  "version": "1.0.0",
+  "scripts": {
+    "slides:build": "node scripts/concat-slides.js",
+    "watch:slides": "chokidar 'src/slides/**/*.md' -c 'npm run slides:build'",
+    "vite": "vite",
+    "dev": "npm-run-all --parallel watch:slides vite",
+    "build": "npm run slides:build && vite build",
+    "preview": "vite preview",
+    "lint": "prettier . --write"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "reveal.js": "^5.0.0"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.6.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "tabWidth": 2
+  }
+}

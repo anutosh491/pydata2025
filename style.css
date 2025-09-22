@@ -1,0 +1,43 @@
+.reveal h1 {
+  font-size: 2.5rem;
+}
+
+.reveal .slides {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+/* Set reveal.js root background to white */
+.reveal {
+  background-color: white;
+  color: black;
+}
+
+/* Default slide background and text color */
+.reveal .slides section {
+  background-color: white;
+  color: black;
+}
+
+/* Ensure headings use the inherited color (black by default) */
+.reveal .slides h1,
+.reveal .slides h2,
+.reveal .slides h3,
+.reveal .slides h4,
+.reveal .slides h5,
+.reveal .slides h6 {
+  color: inherit;
+}
+
+/* Allow slides with custom background to override background only */
+.reveal .slides section[data-background-color] {
+  background-color: unset;
+}
+
+#astronaut {
+  position: fixed;
+  width: 100px;
+  height: auto;
+  z-index: 1000;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
