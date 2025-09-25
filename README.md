@@ -1,6 +1,6 @@
 # PyData 2025
 
-View presentation $\rightarrow$ [IsabelParedes.github.io/pydata2025/](https://isabelparedes.github.io/pydata2025/)
+View presentation $\rightarrow$ [anutosh491.github.io/pydata2025/](https://anutosh491.github.io/pydata2025/)
 
 ### Getting Started
 

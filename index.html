@@ -17,90 +17,280 @@
     <div class="reveal">
 		<div class="slides">
 
-        <section data-background="./abstract_main.jpg">
-          <h1 class="main-title">Expanding Programming Language Support in JupyterLite</h1>
-          <img src="/src/images/logo_scientific_computing.svg" alt="QuantStack Logo" class="title-logo">
-        </section>
+<section data-markdown>
+  <textarea data-template>
+    <h1 style="font-size: 3.5em; margin-bottom: 0.2em;">
+      Xeus-Cpp-Lite
+    </h1>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Introduction
-            Who is this??
-          </textarea>
-        </section>
+    <h2 class="fragment" style="font-size: 2em; font-weight: normal; margin-top: 0;">
+      Xeus-Cpp + JupyterLite
+    </h2>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_pkg.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">Introduction to Emscripten-Forge</h1>
-        </section>
+    <div class="fragment" style="margin-top: 1em; font-size: 1.8em; color: #444;">
+      Interpreting C++ in the Browser
+    </div>
+  </textarea>
+</section>
+<section data-markdown>
+  <textarea data-template>
+    <h1 style="font-size:3em; margin:0 0 .6em 0;">Xeus-Cpp-Lite</h1>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_victory.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">Xeus Kernels in JupyterLite</h1>
-        </section>
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <!-- Link banner -->
+      <div style="grid-column:1 / -1;background:#f6f6ff;border:1px solid #e0e0ff;padding:1rem 1.25rem;border-radius:14px;text-align:center;">
+        <div style="font-weight:600;margin-bottom:.5rem;">Yesterday’s talk: JupyterLite + Emscripten-Forge</div>
+        <a href="https://isabelparedes.github.io/pydata2025/" target="_blank" style="display:inline-block;padding:.5rem 1rem;border-radius:10px;border:1px solid #c9ccff;text-decoration:none;color:#d44;">
+          Slides here ↗
+        </a>
+      </div>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Slide 1
-            A paragraph with some text
-            ---
-            ## Slide 2
-            ---
-            ## Slide 3
-          </textarea>
-        </section>
+      <!-- Column 1 -->
+      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:1.5rem;box-shadow:0 6px 20px rgba(0,0,0,.06);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="font-size:1.1em;font-weight:700;margin-bottom:.6rem;">JupyterLite</div>
+        <ul style="line-height:1.5;margin:0;">
+          <li class="fragment">JupyterLab distribution in the browser</li>
+          <li class="fragment">Powered by WebAssembly</li>
+        </ul>
+      </div>
 
+      <!-- Column 2 -->
+      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:1.5rem;box-shadow:0 6px 20px rgba(0,0,0,.06);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="font-size:1.1em;font-weight:700;margin-bottom:.6rem;">Emscripten-Forge</div>
+        <ul style="line-height:1.5;margin:0;">
+          <li class="fragment">Emscripten + Conda-Forge</li>
+          <li class="fragment">Compiling packages for the emscripten-wasm32 target</li>
+        </ul>
+      </div>
+    </div>
+  </textarea>
+</section>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_rock.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">Packaging R for WebAssembly</h1>
-        </section>
+<section>
+  <h3 style="font-size:2.2em; margin:0 0 1em 0; text-align:left;">
+    Runtime Execution: Native vs Wasm
+  </h3>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Slide 1
-            A paragraph with some text
-            ---
-            ## Slide 2
-            ---
-            ## Slide 3
-          </textarea>
-        </section>
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
 
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Clang-Repl on Native Platforms
+    </p>
+    <ul style="margin:0 0 1.5em 2em; padding:0;">
+      <li class="fragment fade-up">Uses LLVM’s ORC JIT for runtime compilation</li>
+      <li class="fragment fade-up">Compiles code & executes directly from memory</li>
+    </ul>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_pkg_walk.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">Packaging GNU Octave for WebAssembly</h1>
-        </section>
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Clang-Repl in the Browser
+    </p>
+    <ul style="margin:0 0 0 2em; padding:0;">
+      <li class="fragment fade-up">WebAssembly enforces a strict sandbox model</li>
+      <li class="fragment fade-up">Can’t write or modify executable memory at runtime</li>
+      <li class="fragment fade-up">Memory is separated into code and data (Harvard architecture)</li>
+    </ul>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_fly.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">JupyterLite Terminal</h1>
-        </section>
+  </div>
+</section>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Slide 1
-            A paragraph with some text
-            ---
-            ## Slide 2
-            ---
-            ## Slide 3
-          </textarea>
-        </section>
+<section>
+  <h3 style="font-size:2.1em; margin:0 0 1em 0; text-align:left;">
+    WASM backend for Clang-Repl
+  </h3>
 
-        <section class="cosmo-slide">
-          <img src="/src/images/cosmo_rocket.png" alt="QuantStack Logo" class="cosmo-img">
-          <h2 class="main-title">Thank You!</h1>
-        </section>
+  <div style="font-size:1.15em; line-height:1.6; text-align:left;">
 
-        <section data-markdown>
-          <textarea data-template>
-            ## Resources
-            A paragraph with some text
-          </textarea>
-        </section>
+    <p class="fragment fade-up" style="margin:0 0 1em 0; font-size:1.02em;">
+      LLVM 17 introduced a <strong>WASM-specific IncrementalExecutor</strong> that avoids LLVM's ORC JIT
+    </p>
 
+    <p class="fragment fade-up" style="margin:0 0 .8em 0; font-size:1.02em;">
+      The new <strong>WasmIncrementalExecutor</strong> handles the wasm execution as follows:
+    </p>
+
+    <ul style="margin:0 0 0 2em; padding:0; font-size:0.9em;">
+      <li class="fragment fade-up">Each REPL input is parsed into a <code>Partial Translation Unit (PTU)</code></li>
+      <li class="fragment fade-up"><code>PTU</code> is lowered to <code>LLVM IR</code>, then compiled to a WASM object file</li>
+      <li class="fragment fade-up">The object is linked with <code>wasm-ld</code> into a standalone binary (<code>incr_module_x.wasm</code>)</li>
+      <li class="fragment fade-up">The side module is dynamically loaded with emscripten’s <code>dlopen</code>, extending the main module</li>
+    </ul>
+
+  </div>
+</section>
+
+<section>
+  <h3 style="font-size:2.1em; margin:0 0 1em 0; text-align:left;">
+    WASM backend for Clang-Repl
+  </h3>
+
+  <div style="font-size:1.15em; line-height:1.6; text-align:left;">
+
+    <p class="fragment fade-up" style="margin:0 0 .8em 0; font-size:1.05em;">
+      These modules:
+    </p>
+
+    <ul style="margin:0 0 1em 2em; padding:0; font-size:1.05em;">
+      <li class="fragment fade-up">Share the same memory as the main <code>wasm</code> module</li>
+      <li class="fragment fade-up">Resolve symbols from earlier cells <em>(cross-cell linking)</em></li>
+      <li class="fragment fade-up">Mimic dynamic linking, even though <code>WASM</code> doesn’t support shared libraries traditionally</li>
+    </ul>
+
+    <p class="fragment fade-up" style="margin-top:1em; font-size:1.05em; font-weight:600; color:#333;">
+      🚀 This model effectively turned <strong>Clang-Repl</strong> into a live REPL for WebAssembly, enabling <strong>dynamic incremental C++</strong> in the browser!
+    </p>
+
+  </div>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+    ### Xeus-Cpp-Lite Configuration
+
+    <img src="src/images/xeus-cpp-lite-configuration.png"
+         alt="Xeus-Cpp-Lite configuration diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+
+    <p style="font-size:0.9em; color:#555; margin-top:0.6em;" class="fragment fade-up">
+      Fig: Configuration flow for Xeus-Cpp-Lite in the browser
+    </p>
+  </textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+    <h1 style="font-size:4em; margin-bottom:0.4em; color:#d44; text-shadow:2px 2px #ffd;">🎉 LIVE DEMO 🎉</h1>
+
+    <h2 class="fragment fade-up" style="font-size:2em; color:#444; margin-bottom:1em;">
+      Try it out on your phone (Android 📱 or iOS 🍏)!
+    </h2>
+
+    <a href="https://compiler-research.org/xeus-cpp-wasm/lab/index.html" target="_blank"
+       style="display:inline-block; font-size:1.5em; padding:0.8em 1.5em; border-radius:14px;
+              background:#f6f6ff; border:2px solid #c9ccff; text-decoration:none; color:#d44;
+              font-weight:700; box-shadow:0 6px 20px rgba(0,0,0,.1);"
+       class="fragment fade-in">
+      👉 Launch Xeus-Cpp-Lite in your Browser
+    </a>
+  </textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+    <h2 style="font-size:2.5em; margin-bottom:0.8em; text-align:center; color:#222;">
+      Timeit Magic
+    </h2>
+
+    <div style="text-align:center;">
+      <img src="src/images/timeit_latest.gif"
+           alt="Timeit magic demo"
+           style="max-width:100%; max-height:90vh; border-radius:10px; 
+                  box-shadow:0 4px 18px rgba(0,0,0,.25); margin:0 auto; display:inline-block;"/>
+    </div>
+  </textarea>
+</section>
+
+<section>
+  <!-- Title -->
+  <h2 style="font-size:2.4em; font-weight:700; text-align:center; margin-bottom:0.4em;">
+    Loading <span style="font-weight:800;">third-party/custom</span> libs
+  </h2>
+
+  <!-- Subtitle ribbon (smaller, lighter focus) -->
+  <div style="max-width:700px;margin:0 auto 1.2em auto;">
+    <div style="background:#7B2CF3;color:#fff;font-weight:600;text-align:center;
+                padding:.5em 1em;border-radius:8px;font-size:1em;">
+      1. Create a simple C++ module
+    </div>
+  </div>
+
+  <!-- Large Code block (main focus) -->
+  <div style="max-width:1500px;margin:0 auto;box-shadow:0 10px 28px rgba(0,0,0,.25);
+              border-radius:8px; overflow:hidden; font-size:1.5em;">
+    <pre><code class="language-cpp">
+// custom_module.cpp
+#include &lt;iostream&gt;
+
+extern "C" {
+  void my_custom_function() {
+    std::cout &lt;&lt; "Hello from my_custom_function!" &lt;&lt; std::endl;
+  }
+}
+    </code></pre>
+  </div>
+</section>
+
+<section>
+  <!-- Title -->
+  <h2 style="font-size:2.4em; font-weight:700; text-align:center; margin-bottom:0.4em;">
+    Loading <span style="font-weight:800;">third-party/custom</span> libs
+  </h2>
+
+  <!-- Subtitle ribbon (smaller, lighter focus) -->
+  <div style="max-width:1000px;margin:0 auto 1.2em auto;">
+    <div style="background:#7B2CF3;color:#fff;font-weight:600;text-align:center;
+                padding:.5em 1em;border-radius:8px;font-size:1em;">
+      2. Compile it to a WebAssembly shared object
+    </div>
+  </div>
+
+  <!-- Large Code block (main focus) -->
+  <div style="max-width:1500px;margin:0 auto;box-shadow:0 10px 28px rgba(0,0,0,.25);
+              border-radius:8px; overflow:hidden; font-size:1.8em;">
+    <pre><code class="language-cpp">
+emcc custom_module.cpp \
+    -O2 \
+    -s SIDE_MODULE=1 \
+    -s WASM=1 \
+    -fPIC \
+    -o custom_module.so
+    </code></pre>
+  </div>
+</section>
+
+<section>
+  <!-- Title -->
+  <h2 style="font-size:2.4em; font-weight:700; text-align:center; margin-bottom:0.6em;">
+    Loading <span style="font-weight:800;">third-party/custom</span> libs
+  </h2>
+
+  <!-- Image (dlopen) -->
+  <div style="text-align:center;">
+    <img src="src/images/dlopen.png"
+         alt="dlopen flow"
+         style="max-width:100%; max-height:100vh; display:inline-block; margin:0 auto;
+                border-radius:10px; box-shadow:0 8px 28px rgba(0,0,0,.25);" />
+  </div>
+</section>
+
+<section>
+  <!-- Title -->
+  <h3 style="font-size:2.6em; margin:0 0 1em 0; text-align:left;">
+    Near Future Work
+  </h3>
+
+  <!-- Bullet Points Wrapper with gray box -->
+  <div style="background:#f5f5f5; padding:1.2em 1.5em; border-radius:8px;
+              font-size:1.6em; line-height:1.8; text-align:left; max-width:80%;">
+    <ul style="margin:0; padding-left:1.2em;">
+      <li style="font-weight:600; margin:0 0 .8em 0;">
+        Last Value Printing
+      </li>
+      <li style="font-weight:600; margin:0 0 .8em 0;">
+        Point 2 (cuda support? ... image would do)
+      </li>
+      <li style="font-weight:600; margin:0 0 .8em 0;">
+        Point 3 (debugger suport? ... video preferred)
+      </li>
+      <li style="font-weight:600; margin:0 0 .8em 0;">
+        Point 4 (python interop? ... image would do)
+      </li>
+      <li style="font-weight:600; margin:0;">
+        Point 5 (Multiple interpreters? ... image would do)
+      </li>
+    </ul>
+  </div>
+</section>
       </div>
 		</div>
   </body>
