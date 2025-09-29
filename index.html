@@ -15,6 +15,14 @@
         bottom: 2%;
         left: 2%;
       }
+      .circle-img-big {
+        width: 200px !important;
+        height: 200px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
     </style>
   </head>
   <body>
@@ -30,6 +38,105 @@
     <div class="reveal">
 		<div class="slides">
 
+<section data-background-image="./cosmo_victory.png" data-background-opacity="0.1">
+  <h1>xeus-cpp, the new C++ kernel for Jupyter</h1>
+  <img src="/src/images/logo_scientific_computing.svg" alt="QuantStack Logo" class="title-logo">
+</section>
+<section>
+  <h2>About</h2>
+  <div class="two-column">
+    <div class="column">
+      <img src="src/images/Anutosh.png" alt="Anutosh profile picture" class="circle-img-big">
+      <strong style="font-size: 1.5em">Anutosh Bhat</strong><br>
+      <div style="text-align: left">
+        Software engineer at QuantStack<br>
+        Contributes to the xeus stack<br>
+        Contributes to LLVM<br>
+      </div>
+    </div>
+    <div class="column">
+      <img src="src/images/Johan.png" alt="Johan profile picture" class="circle-img-big">
+      <strong style="font-size: 1.5em">Johan Mabille</strong><br>
+      <div style="text-align: left">
+        Technical director at QuantStack<br>
+        Jupyter Distinguished Contributor<br>
+        Contributes to mamba and xtensor<br>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 style="margin:0 0 1em 0; text-align:left;">
+    Writing Jupyter Kernels (1/2)
+  </h2>
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Before 2017
+    </p>
+    <ul style="margin:0 0 1.5em 2em; padding:0;">
+      <li class="fragment fade-up">Write from scratch</li>
+      <li class="fragment fade-up">Use the kernel wrapper approach</li>
+    </ul>
+
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      2017: release of xeus
+    </p>
+    <ul style="margin:0 0 0 2em; padding:0;">
+      <li class="fragment fade-up">A modern C++ implementation of the Jupyter Kernel Protocol</li>
+      <li class="fragment fade-up">Not a kernel, but a tool to make kernel</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 style="margin:0 0 1em 0; text-align:left;">
+    Writing Jupyter Kernels (2/2)
+  </h2>
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      After 2017: xeus-based kernels
+    </p>
+    <ul style="margin:0 0 1.5em 2em; padding:0;">
+      <li class="fragment fade-up">xeus-python</li>
+      <li class="fragment fade-up">xeus-sql, xeus-sqlite</li>
+      <li class="fragment fade-up">xeus-cling, based on Cling, a C++ interpreter developped at the CERN</li>
+    </ul>
+
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      2022: split of xeus
+    </p>
+    <ul style="margin:0 0 0 2em; padding:0;">
+      <li class="fragment fade-up">xeus: implementation of the Jupyter Kernel protocol with no middleware</li>
+      <li class="fragment fade-up">xeus-zmq: ZMQ-based middleware for xeus</li>
+      <li class="fragment fade-up">xeus-lite: emscripten-based middleware for xeus</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 style="margin:0 0 1em 0; text-align:left;">
+    The need for a new C++ kernel
+  </h2>
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Limitations of Cling
+    </p>
+    <ul style="margin:0 0 0 2em; padding:0;">
+      <li class="fragment fade-up">Based on an outdated version of Clang</li>
+      <li class="fragment fade-up">Limited capabilities and compatibility with modern C++ features</li>
+      <li class="fragment fade-up">Hard to maintain on all the platforms</li>
+    </ul>
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      xeus-cpp, based on Clang
+    </p>
+    <ul style="margin:0 0 0 2em; padding:0;">
+      <li class="fragment fade-up">Recent versions of Clang incorporated REPL in their codebase</li>
+      <li class="fragment fade-up">Extensible architecture based on plugins</li>
+      <li class="fragment fade-up">Supports modern versions of C++, and many features (CUDA, python)</li>
+    </ul>
+  </div>
+</section>
+<section>
+    <h1 style="font-size:4em; margin-bottom:0.4em; color:#d44; text-shadow:2px 2px #ffd;">🎉 LIVE DEMO 🎉</h1>
+</section>
 <section data-markdown>
   <textarea data-template>
     <h1 style="font-size: 3.5em; margin-bottom: 0.2em;">
